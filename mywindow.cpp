@@ -23,6 +23,7 @@ MyWindow::MyWindow(QWidget *parent) : QWidget(parent)
     poczX = 25;
     poczY = 25;
 
+    // Ustawienia kolorów
     kolorB = 0;
     kolorG = 0;
     kolorR = 0;
@@ -38,12 +39,15 @@ MyWindow::MyWindow(QWidget *parent) : QWidget(parent)
     // Tworzymy grupe elementow
     // Drugi parametr konstruktora to rodzic elementu
     grupa = new QGroupBox("Sterowanie",this);
+    grupaKolor = new QGroupBox("Kolory", this);
 
     // Ustawiamy wymiary tej grupy i jej polozenie wzgledem glownego okna
     grupa->setGeometry(QRect(poczX+szer+poczX,poczY,800-szer-2*poczX,poczY+150));
+    grupaKolor->setGeometry(QRect(poczX+szer+poczX,poczY+400,800-szer-2*poczX,150));
 
     // Tworzymy nowy layout pionowy
     QVBoxLayout *boxLayout = new QVBoxLayout;
+    QVBoxLayout *boxKolor = new QVBoxLayout;
 
     // Tworzymy 4 przyciski
     cleanButton = new QPushButton("Czysc");
@@ -51,14 +55,34 @@ MyWindow::MyWindow(QWidget *parent) : QWidget(parent)
     odcinekButton = new QPushButton("Odcinek");
     okragButton = new QPushButton("Okrag");
 
+    //Slidery do kolorów
+    QSlider *sliderB = new QSlider(Qt::Horizontal);
+    QSlider *sliderG = new QSlider(Qt::Horizontal);
+    QSlider *sliderR = new QSlider(Qt::Horizontal);
+    sliderB->setRange(0, 255);
+    sliderG->setRange(0, 255);
+    sliderR->setRange(0, 255);
+    sliderB->setValue(0);
+    sliderG->setValue(0);
+    sliderR->setValue(0);
+
     // Dodajemy przyciski do layoutu
     boxLayout->addWidget(cleanButton);
     boxLayout->addWidget(odcinekButton);
     boxLayout->addWidget(okragButton);
     boxLayout->addWidget(exitButton);
 
+    //Dodajemy slidery i nadajemy im nazwy
+    boxKolor->addWidget(new QLabel ("Blue"));
+    boxKolor->addWidget(sliderB);
+    boxKolor->addWidget(new QLabel ("Green"));
+    boxKolor->addWidget(sliderG);
+    boxKolor->addWidget(new QLabel ("Red"));
+    boxKolor->addWidget(sliderR);
+
     // Dodajemy layout do grupy
     grupa->setLayout(boxLayout);
+    grupaKolor->setLayout(boxKolor);
 
 
     // Laczymy sygnal emitowany po nacisnieciu przycisku "Wyjscie"
@@ -68,7 +92,12 @@ MyWindow::MyWindow(QWidget *parent) : QWidget(parent)
     // Laczymy sygnaly emitowane po nacisnieciu przyciskow z odpowiednimi slotami
     connect(cleanButton,SIGNAL(clicked()),this,SLOT(slot_czysc()));
     connect(odcinekButton,SIGNAL(clicked()),this,SLOT(wlaczOdcinek()));
+
+    connect(sliderB,SIGNAL(valueChanged(int)),this,SLOT(zmienBlue(int)));
+    connect(sliderG,SIGNAL(valueChanged(int)),this,SLOT(zmienGreen(int)));
+    connect(sliderR,SIGNAL(valueChanged(int)),this,SLOT(zmienRed(int)));
 }
+
 
 // Definicja destruktora
 MyWindow::~MyWindow()
@@ -88,6 +117,16 @@ void MyWindow::paintEvent(QPaintEvent*)
     p.drawImage(poczX,poczY,*img);
 }
 
+// Funkcje do zmiany kolorow
+void MyWindow::zmienBlue(int x){
+    kolorB = x;
+}
+void MyWindow::zmienGreen(int x){
+    kolorG = x;
+}
+void MyWindow::zmienRed(int x){
+    kolorR = x;
+}
 
 // Funkcja (slot) wywolywana po nacisnieciu przycisku "Czysc" (cleanButton)
 void MyWindow::slot_czysc()

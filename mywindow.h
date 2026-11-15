@@ -11,6 +11,10 @@
 // (standardowy przycisk)
 #include <QPushButton>
 
+//Plik do sliderow
+#include <QSlider>
+#include <QLabel>
+
 // Dolaczamy plik naglowkowy klasy QGroupBox
 // (do grupowania komponentow GUI)
 #include <QGroupBox>
@@ -45,6 +49,7 @@ public:
     // Deklaracja destruktora
     ~MyWindow();
 
+
 private:
 
     // Pole przechowujace obrazek
@@ -56,8 +61,14 @@ private:
     QPushButton *odcinekButton;
     QPushButton *okragButton;
 
+    // Slidery
+    QSlider *sliderB;
+    QSlider *sliderG;
+    QSlider *sliderR;
+
     // Grupa przyciskow
     QGroupBox *grupa;
+    QGroupBox *grupaKolor;
 
     // Pola przechowujace szerokosc i wysokosc rysunku
     // oraz wspolrzedne jego lewego gornego naroznika
@@ -71,6 +82,7 @@ private:
     int sY;
 
     bool rysowanie;
+
     int kolorB;
     int kolorG;
     int kolorR;
@@ -90,6 +102,9 @@ private:
 private slots:
     void slot_czysc();
     void wlaczOdcinek();
+    void zmienBlue(int x);
+    void zmienGreen(int x);
+    void zmienRed(int x);
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
