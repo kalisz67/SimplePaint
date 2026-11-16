@@ -42,7 +42,11 @@ template <> constexpr inline auto MyWindow::qt_create_metaobjectdata<qt_meta_tag
         "MyWindow",
         "slot_czysc",
         "",
+        "resetWlacznikow",
+        "wlaczPixel",
         "wlaczOdcinek",
+        "wlaczOkrag",
+        "wlaczElipse",
         "zmienBlue",
         "x",
         "zmienGreen",
@@ -59,35 +63,43 @@ template <> constexpr inline auto MyWindow::qt_create_metaobjectdata<qt_meta_tag
     QtMocHelpers::UintData qt_methods {
         // Slot 'slot_czysc'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'wlaczOdcinek'
+        // Slot 'resetWlacznikow'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'wlaczPixel'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'wlaczOdcinek'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'wlaczOkrag'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'wlaczElipse'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'zmienBlue'
-        QtMocHelpers::SlotData<void(int)>(4, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 5 },
+        QtMocHelpers::SlotData<void(int)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 9 },
         }}),
         // Slot 'zmienGreen'
-        QtMocHelpers::SlotData<void(int)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 5 },
+        QtMocHelpers::SlotData<void(int)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 9 },
         }}),
         // Slot 'zmienRed'
-        QtMocHelpers::SlotData<void(int)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 5 },
+        QtMocHelpers::SlotData<void(int)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 9 },
         }}),
         // Slot 'mousePressEvent'
-        QtMocHelpers::SlotData<void(QMouseEvent *)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 9, 10 },
+        QtMocHelpers::SlotData<void(QMouseEvent *)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 13, 14 },
         }}),
         // Slot 'mouseMoveEvent'
-        QtMocHelpers::SlotData<void(QMouseEvent *)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 9, 10 },
+        QtMocHelpers::SlotData<void(QMouseEvent *)>(15, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 13, 14 },
         }}),
         // Slot 'mouseReleaseEvent'
-        QtMocHelpers::SlotData<void(QMouseEvent *)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 9, 10 },
+        QtMocHelpers::SlotData<void(QMouseEvent *)>(16, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 13, 14 },
         }}),
         // Slot 'paintEvent'
-        QtMocHelpers::SlotData<void(QPaintEvent *)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 14, 2 },
+        QtMocHelpers::SlotData<void(QPaintEvent *)>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 18, 2 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -113,14 +125,18 @@ void MyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->slot_czysc(); break;
-        case 1: _t->wlaczOdcinek(); break;
-        case 2: _t->zmienBlue((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 3: _t->zmienGreen((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->zmienRed((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 5: _t->mousePressEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
-        case 6: _t->mouseMoveEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
-        case 7: _t->mouseReleaseEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
-        case 8: _t->paintEvent((*reinterpret_cast<std::add_pointer_t<QPaintEvent*>>(_a[1]))); break;
+        case 1: _t->resetWlacznikow(); break;
+        case 2: _t->wlaczPixel(); break;
+        case 3: _t->wlaczOdcinek(); break;
+        case 4: _t->wlaczOkrag(); break;
+        case 5: _t->wlaczElipse(); break;
+        case 6: _t->zmienBlue((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->zmienGreen((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->zmienRed((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->mousePressEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
+        case 10: _t->mouseMoveEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
+        case 11: _t->mouseReleaseEvent((*reinterpret_cast<std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
+        case 12: _t->paintEvent((*reinterpret_cast<std::add_pointer_t<QPaintEvent*>>(_a[1]))); break;
         default: ;
         }
     }
@@ -145,14 +161,14 @@ int MyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }

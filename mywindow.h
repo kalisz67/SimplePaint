@@ -15,6 +15,9 @@
 #include <QSlider>
 #include <QLabel>
 
+// Biblioteka do np. pierwiastkow
+#include<QtMath>
+
 // Dolaczamy plik naglowkowy klasy QGroupBox
 // (do grupowania komponentow GUI)
 #include <QGroupBox>
@@ -58,8 +61,10 @@ private:
     // Przyciski
     QPushButton *cleanButton;
     QPushButton *exitButton;
+    QPushButton *pixelButton;
     QPushButton *odcinekButton;
     QPushButton *okragButton;
+    QPushButton *elipsaButton;
 
     // Slidery
     QSlider *sliderB;
@@ -91,17 +96,25 @@ private:
     void czysc();
     void pixel(int x, int y);
     void odcinek(int x1, int y1, int x2, int y2);
+    void okrag(int x1, int y1, int x2, int y2);
+    void elipsa(int x1, int y1, int x2, int y2);
 
     // Opcje modyfikacji obrazu
+    bool pixelONOFF;
     bool odcinekONOFF;
-
+    bool okragONOFF;
+    bool elipsaONOFF;
 
     // Deklaracje slotow, czyli funkcji wywolywanych
     // po wystapieniu zdarzen zwiazanych z GUI
     // np. klikniecie na przycisk, ruch myszka
 private slots:
     void slot_czysc();
+    void resetWlacznikow();
+    void wlaczPixel();
     void wlaczOdcinek();
+    void wlaczOkrag();
+    void wlaczElipse();
     void zmienBlue(int x);
     void zmienGreen(int x);
     void zmienRed(int x);
